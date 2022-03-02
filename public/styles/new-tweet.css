@@ -1,0 +1,32 @@
+main textarea {
+  height: 100%;
+  width: 200%;
+  border-top: 0px;
+  border-bottom: 1px solid black;
+  border-right: 0px;
+  border-left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main div {
+  width:200%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+main div button {
+  background-color: rgb(15, 15, 167);
+  color: white;
+  font-size: 15px;
+  padding: 1px 20px;
+  text-align: center;
+  font-family: 'Bungee', cursive;
+}
+
+main div output {
+  font-family: 'Bungee', cursive;
+}
