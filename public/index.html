@@ -23,11 +23,14 @@
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
+  <!-- jquery from cdnjs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+    integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- App JS -->
   <script type="text/javascript" src="/scripts/client.js"></script>
 
-  <!-- font awesome from the cdn -->
+  <!-- font awesome from the cdnjs -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -61,15 +64,25 @@
   <!-- Page-specific (main) content here -->
   <main class="container">
     <section class="new-tweet">
+      <form id = textarea>
         <form action="/tweets" method=POST>
         <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <div>
-            <button type="submit">Tweet</button>
+            <button type="submit">Tweet</button>       
             <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
+      </form>
+      <article class="otherTweet">
+        <head><img src="/images/profile-hex.png"></head>
+        <body>  say something bro.  </body>
+        <footer>
+          
+        </footer>
+      </article>
     </section>
   </main>
+  
 </body>
-
+      <script src="scripts/composer-char-counter.js"></script>
 </html>

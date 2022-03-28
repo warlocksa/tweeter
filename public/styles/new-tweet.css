@@ -30,3 +30,7 @@ main div button {
 main div output {
   font-family: 'Bungee', cursive;
 }
+
+.red {
+  color: red !important
+}
