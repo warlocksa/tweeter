@@ -1,0 +1,53 @@
+main article {
+  width: 100%;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}  
+
+article .tweet-header {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+article .text {
+  width: 100%;
+  padding: 15px;
+  border-top: 0px;
+  border-bottom: 1px solid black;
+  border-right: 0px;
+  border-left: 0px;
+}
+
+article footer {
+  width: 100%;
+  padding: 10px;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer .icon-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#icon1{
+  padding:10px;
+}
+
+#icon2{
+  padding:10px;
+}
+
+#icon3{
+  padding:10px;
+}
+
+footer i:hover {
+  color: rgb(208, 208, 52);
+}
