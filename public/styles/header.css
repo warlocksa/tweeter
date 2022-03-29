@@ -1,6 +1,7 @@
 header {
   height: 400px;
   width: 100%;
+  margin-top: 120px;
   background-color: rgb(231, 156, 16);
   background-image: url("https://www.transparenttextures.com/patterns/clean-gray-paper.png");
   display: flex;
