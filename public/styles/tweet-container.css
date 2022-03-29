@@ -5,6 +5,7 @@ main article {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* box-shadow: 10px 10px rgb(24, 22, 22); */
 }  
 
 article .tweet-header {
@@ -12,6 +13,7 @@ article .tweet-header {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+
 }
 
 article .text {
@@ -51,3 +53,4 @@ footer .icon-container {
 footer i:hover {
   color: rgb(208, 208, 52);
 }
+
