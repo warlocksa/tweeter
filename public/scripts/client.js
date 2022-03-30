@@ -3,29 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const person = {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1648349110471
-//   };
-
-// const markup = `
-//  <div class="tweet-container">
-//     <h2>
-//         ${person.user.name}
-//     </h2>
-//     <p class="tweet-content">${person.content}</p>
-//     <p class="tweet-date">${person.created_at}</p>
-//  </div>
-// `;
-// document.body.innerHTML = markup;
-
 const tweetData = [
   {
     "user": {
@@ -67,7 +44,8 @@ const createTweetElement = function (tweet) {
   let handle = tweet.user.handle;
   let message = tweet.content.text;
   let time = tweet.created_at;
-  let $tweet = `<article>
+  let $tweet = 
+      `<article>
         <div class="tweet-header">
           <div><img src="${avatar}">${name}</div>
           <div>${handle}</div>
@@ -89,4 +67,17 @@ const createTweetElement = function (tweet) {
 
 $(document).ready(function () {
   renderTweets(tweetData);
+});
+
+$(document).ready(function () {
+  $("#submit-tweet").submit(function (event) {
+    event.preventDefault();
+    $.ajax('/tweets', {
+      method: 'POST',
+      data: $("#submit-tweet").serialize() 
+    })
+      .then(function (res) {
+        console.log(res)
+      });
+  });
 });
