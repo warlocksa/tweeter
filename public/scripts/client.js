@@ -3,31 +3,6 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-// const tweetData = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1648349110471
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd"
-//     },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1648435510471
-//   }
-// ];
-// const timeago = require('timeago.js');
 
 const renderTweets = function (tweets) {
   // loops through tweets
@@ -40,12 +15,14 @@ const renderTweets = function (tweets) {
 }
 
 const createTweetElement = function (tweet) {
-  let name = tweet.user.name;
-  let avatar = tweet.user.avatars;
-  let handle = tweet.user.handle;
-  let message = tweet.content.text;
-  let time = tweet.created_at;
-  let $tweet = 
+  // get data from database
+  const name = tweet.user.name;
+  const avatar = tweet.user.avatars;
+  const handle = tweet.user.handle;
+  const message = tweet.content.text;
+  const time = tweet.created_at;
+  // put the data into webpage 
+  const $tweet = 
       `<article>
         <div class="tweet-header">
           <div><img src="${avatar}">${name}</div>
@@ -68,9 +45,18 @@ const createTweetElement = function (tweet) {
 
 $(document).ready(function () {
   $.get('/tweets', renderTweets)
-
+// prevent the webpage refresher and send the text by ajax
   $("#submit-tweet").submit(function (event) {
     event.preventDefault();
+    // $("#submit-tweet").serialize().length at least is 5(text=); 
+    if ($("#submit-tweet").serialize().length > 145) {
+      alert("the text is too long");
+      return;
+    }
+    if ($("#submit-tweet").serialize().length === 5) {
+      alert("please write something");
+      return;
+    }
     $.ajax( {
       method: 'POST',
       url: '/tweets',
@@ -81,19 +67,6 @@ $(document).ready(function () {
     });  
 })
 })
-
-// $(document).ready(function () {
-//   $("#submit-tweet").submit(function (event) {
-//     event.preventDefault();
-//     $.ajax('/tweets', {
-//       method: 'POST',
-//       data: $("#submit-tweet").serialize() 
-//     })
-//       // .then(function (res) {
-//       //   console.log(res)
-//       // });
-//   });
-// });
 
 // $(document).ready(function () {
 //   $("#submit - tweet").submit(function () {

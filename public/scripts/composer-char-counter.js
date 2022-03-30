@@ -8,7 +8,7 @@ $(document).ready(function () {
 
   // count the length of elements typing
   $('#tweet-text').on('input', function (elements) { 
-    const input = elements.target.value.length
+    const input = elements.target.value.length;
     $(".counter").text(140 - input)
   //if the input more than 140, the count change to red 
     if (140 - input < 0) {
