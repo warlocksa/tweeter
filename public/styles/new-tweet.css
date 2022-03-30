@@ -34,3 +34,16 @@ main div output {
 .red {
   color: red !important
 }
+
+a {
+  background-color: rgb(121, 100, 10);
+  color: red;
+  font-size: 20px;
+  padding: 1px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bungee', cursive;
+}
