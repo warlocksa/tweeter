@@ -1,12 +1,16 @@
 main article {
   width: 100%;
   border: 1px solid black;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 10px 10px rgb(24, 22, 22); */
-}  
+}
+
+main article:hover{
+  box-shadow: 10px 10px rgb(24, 22, 22);
+}
 
 article .tweet-header {
   width: 100%;
@@ -17,10 +21,10 @@ article .tweet-header {
 }
 
 article .text {
-  width: 100%;
+  width: 95%;
   padding: 15px;
   border-top: 0px;
-  border-bottom: 1px solid black;
+  border-bottom: 5px solid black;
   border-right: 0px;
   border-left: 0px;
 }

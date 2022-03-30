@@ -3,30 +3,31 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1648349110471
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1648435510471
-  }
-];
+// const tweetData = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png",
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1648349110471
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd"
+//     },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1648435510471
+//   }
+// ];
+// const timeago = require('timeago.js');
 
 const renderTweets = function (tweets) {
   // loops through tweets
@@ -34,7 +35,7 @@ const renderTweets = function (tweets) {
   // calls createTweetElement for each tweet
     let $tweet = createTweetElement(tweet)
   // takes return value and appends it to the tweets container
-    $('#tweets-container').append($tweet) 
+    $('#tweets-container').prepend($tweet) 
   } 
 }
 
@@ -54,7 +55,7 @@ const createTweetElement = function (tweet) {
           <p>${message}</p>
         </div>
         <footer>
-          <p>${time}</p>
+          <p>${timeago.format(time)}</p>
           <div class="icon-container">
           <i class="fa-solid fa-flag" id="icon1"></i>
           <i class="fa-solid fa-retweet" id="icon2"></i>
@@ -66,18 +67,40 @@ const createTweetElement = function (tweet) {
 }
 
 $(document).ready(function () {
-  renderTweets(tweetData);
-});
+  $.get('/tweets', renderTweets)
 
-$(document).ready(function () {
   $("#submit-tweet").submit(function (event) {
     event.preventDefault();
-    $.ajax('/tweets', {
+    $.ajax( {
       method: 'POST',
-      data: $("#submit-tweet").serialize() 
+      url: '/tweets',
+      data: $("#submit-tweet").serialize()
     })
-      .then(function (res) {
-        console.log(res)
-      });
-  });
-});
+    .done(function () {
+      $.get('/tweets', renderTweets)
+    });  
+})
+})
+
+// $(document).ready(function () {
+//   $("#submit-tweet").submit(function (event) {
+//     event.preventDefault();
+//     $.ajax('/tweets', {
+//       method: 'POST',
+//       data: $("#submit-tweet").serialize() 
+//     })
+//       // .then(function (res) {
+//       //   console.log(res)
+//       // });
+//   });
+// });
+
+// $(document).ready(function () {
+//   $("#submit - tweet").submit(function () {
+//     $.ajax('/tweets', {method: 'GET'} )
+//       .then(
+//         $.getJSON('example.json', (data) => {
+//           console.log(data);
+//         }))
+//       }
+// )});
