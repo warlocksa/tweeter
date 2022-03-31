@@ -16,3 +16,12 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser: ^1.15.2
+- Chance: ^1.0.2
+- Express: ^4.13.4
+- Jquery: ^3.6.0
+- Md5: ^2.1.0
+- Timeago.js: ^4.0.2
+
+## Final product
+Week 4 project for my compass class, the tweeter app, even I never use twitter. Web design part always takes me much time. The following screenshot shows some parts of this project.

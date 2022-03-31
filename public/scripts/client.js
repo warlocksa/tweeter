@@ -71,6 +71,7 @@ $(document).ready(function() {
     });
     //empty the textarea after tweet successful
     document.getElementById('tweet-text').value = '';
+    document.getElementById('tweet-length').value = 140;
   })
 });
 
