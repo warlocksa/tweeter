@@ -22,8 +22,15 @@ nav div {
   align-items: center;
 }
 
-nav div i {
-  color: red;
+nav div button {
+  color:#FFFFFF; 
   margin-top: -25px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+}
+
+nav div button i {
+  color: red;
 }
 
