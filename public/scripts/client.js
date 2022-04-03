@@ -51,13 +51,13 @@ $(document).ready(function() {
     event.preventDefault();
     //hide the error message again after new tweet comes
     $("a").hide();
-    // $("#submit-tweet").serialize().length at least is 5(text=);
-    if ($("#submit-tweet").serialize().length > 145) {
-      $("#error2").slideDown("slow");
+    const tweetText = $('#tweet-text').val();    
+    if (tweetText.length > 140) {
+      $("#error-tooLong").slideDown("slow");
       return;
     }
-    if ($("#submit-tweet").serialize().length === 5) {
-      $("#error1").slideDown("slow");
+    if (tweetText.length === 0) {
+      $("#error-tooShort").slideDown("slow");
       return;
     }
     
@@ -74,13 +74,3 @@ $(document).ready(function() {
     document.getElementById('tweet-length').value = 140;
   })
 });
-
-// $(document).ready(function () {
-//   $("#submit - tweet").submit(function () {
-//     $.ajax('/tweets', {method: 'GET'} )
-//       .then(
-//         $.getJSON('example.json', (data) => {
-//           console.log(data);
-//         }))
-//       }
-// )});

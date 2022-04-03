@@ -3,9 +3,6 @@
 
 $(document).ready(function () {
   // --- our code goes here ---
-  // make sure jquary is work.
-  console.log('jQuary is works');
-
   // count the length of elements typing
   $('#tweet-text').on('input', function (elements) { 
     const input = elements.target.value.length;
